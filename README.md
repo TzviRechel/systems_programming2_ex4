@@ -1,6 +1,6 @@
 # Tree Implementation in C++
 
-This repository contains a generic tree implementation in C++ that supports various types of nodes, including `int`, `double`, `string`, and custom types like `Complex`. The implementation includes methods for tree manipulation and traversal, with special support for binary trees and a `myHeap()` method to convert a binary tree to a min-heap. The project also uses the doctest framework for testing.
+This project contains a generic tree implementation in C++ that supports various types of nodes, including `int`, `double`, `string`, and custom types like `Complex`. The implementation includes methods for tree manipulation and traversal, with special support for binary trees and a `myHeap()` method to convert a binary tree to a min-heap. The project also uses the doctest framework for testing.
 
 ## Files
 
