@@ -25,7 +25,7 @@ Defined in `Tree.hpp`, the `Tree` class template represents a generic tree. By d
 - `void add_sub_node(Node<T>& parent, Node<T>& child)`: Adds a child node to a specified parent node.
 - `void myHeap()`: Converts the binary tree into a min-heap.
 
-### Iterators
+## Iterators
 
 The `Tree` class provides iterators for various traversal methods:
 
