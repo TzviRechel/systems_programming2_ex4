@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <QString>
 
 template <typename T>
 class Node{
@@ -31,10 +32,10 @@ class Node{
         return children;
     }
 
-    //  QString toString() const {
-    //     std::stringstream ss;
-    //     ss << key;
-    //     return QString::fromStdString(ss.str());
-    // }
+     QString toString() const {
+        std::stringstream ss;
+        ss << key;
+        return QString::fromStdString(ss.str());
+    }
 
 };

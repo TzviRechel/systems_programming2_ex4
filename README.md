@@ -5,7 +5,7 @@ This project contains a generic tree implementation in C++ that supports various
 ## Files
 
 - `Complex.hpp`: Header file for the `Complex` class, which represents complex numbers.
-- `demo.cpp`: A demo program demonstrating the usage of the tree implementation.
+- `main.cpp`: A main program demonstrating the usage of the tree implementation.
 - `Makefile`: A Makefile for building the project and running tests.
 - `Node.hpp`: Header file for the `Node` class template, representing nodes in the tree.
 - `Test.cpp`: A file containing tests for the tree implementation using the doctest framework.
