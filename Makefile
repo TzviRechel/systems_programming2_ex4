@@ -326,7 +326,7 @@ distdir: FORCE
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
-	rm -f *.o test main
+	rm -f *.o main
 
 
 
