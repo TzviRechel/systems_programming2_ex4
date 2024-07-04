@@ -114,7 +114,6 @@ class Tree{
             }
 
             // i++;
-            // Usually iterators are passed by value and not by const& as they are small.
             const inorderIterator operator++(int) {
                 inorderIterator tmp = *this;
                 ++tmp;
