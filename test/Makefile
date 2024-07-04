@@ -52,11 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../TreeViewWidget.cpp \
-		Test.cpp moc_TreeViewWidget.cpp
-OBJECTS       = TreeViewWidget.o \
-		Test.o \
-		moc_TreeViewWidget.o
+SOURCES       = Test.cpp 
+OBJECTS       = Test.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -137,8 +134,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		test.pro ../TreeViewWidget.hpp \
 		../Tree.hpp \
 		../Node.hpp \
-		../Complex.hpp ../TreeViewWidget.cpp \
-		Test.cpp
+		../Complex.hpp Test.cpp
 QMAKE_TARGET  = test
 DESTDIR       = 
 TARGET        = test
@@ -323,7 +319,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TreeViewWidget.hpp ../Tree.hpp ../Node.hpp ../Complex.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TreeViewWidget.cpp Test.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents Test.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -354,16 +350,8 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_TreeViewWidget.cpp
+compiler_moc_header_make_all:
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_TreeViewWidget.cpp
-moc_TreeViewWidget.cpp: ../TreeViewWidget.hpp \
-		../Tree.hpp \
-		../Node.hpp \
-		moc_predefs.h \
-		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/tzvi/SystemsProgramming2/ex4/test/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tzvi/SystemsProgramming2/ex4/test -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../TreeViewWidget.hpp -o moc_TreeViewWidget.cpp
-
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
@@ -376,20 +364,15 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
+compiler_clean: compiler_moc_predefs_clean 
 
 ####### Compile
 
-TreeViewWidget.o: ../TreeViewWidget.cpp ../TreeViewWidget.hpp \
+Test.o: Test.cpp doctest.h \
+		../Node.hpp \
 		../Tree.hpp \
-		../Node.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TreeViewWidget.o ../TreeViewWidget.cpp
-
-Test.o: Test.cpp doctest.h
+		../Complex.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Test.o Test.cpp
-
-moc_TreeViewWidget.o: moc_TreeViewWidget.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_TreeViewWidget.o moc_TreeViewWidget.cpp
 
 ####### Install
 
