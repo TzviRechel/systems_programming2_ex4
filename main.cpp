@@ -1,3 +1,4 @@
+// tzvirechel@gmail.com
 #include <QApplication>
 #include "TreeViewWidget.hpp"
 #include <iostream>
