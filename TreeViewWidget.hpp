@@ -6,10 +6,12 @@
 #include "Tree.hpp"
 
 class TreeViewWidget : public QGraphicsView {
-    Q_OBJECT
 
 public:
-    explicit TreeViewWidget(QWidget *parent = nullptr);
+    TreeViewWidget(QWidget *parent = nullptr) : QGraphicsView(parent), scene(new QGraphicsScene(this)) {
+    setScene(scene);
+    setRenderHint(QPainter::Antialiasing);
+}
 
     template <typename T, int k>
     void displayTree(const Tree<T, k>& tree);
@@ -59,7 +61,5 @@ void TreeViewWidget::drawNode(QGraphicsScene *scene, Node<T> *node, int x, int y
     }
 }
 
-// Include this to instantiate the template methods
-template void TreeViewWidget::displayTree<int, 2>(const Tree<int, 2>& tree);
-template void TreeViewWidget::drawNode<int>(QGraphicsScene *scene, Node<int> *node, int x, int y, int dx, int dy);
+
 
